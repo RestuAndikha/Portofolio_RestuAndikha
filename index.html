@@ -333,7 +333,7 @@
     @media (max-width: 560px) {
       .projects-grid, .skills-grid { grid-template-columns: 1fr; }
       .project { min-height: 0; }
-      .timeline li { grid-template-columns: 1fr; gap: 5px; padding: 19px 0; }
+      .timeline > li { grid-template-columns: 1fr; gap: 5px; padding: 19px 0; }
       .quick-facts { gap: 9px; }
       .fact { padding: 13px; }
       .hero-actions { align-items: stretch; flex-direction: column; }
@@ -505,8 +505,8 @@
       background: rgba(255,255,255,.045);
       border-color: rgba(255,255,255,.13);
     }
-    .timeline li { border-top-color: rgba(255,255,255,.13); }
-    .timeline li:last-child { border-bottom-color: rgba(255,255,255,.13); }
+    .timeline > li { border-top-color: rgba(255,255,255,.13); }
+    .timeline > li:last-child { border-bottom-color: rgba(255,255,255,.13); }
     .timeline .org { color: #e1e2e6; }
 
     .contact-panel {
@@ -649,6 +649,78 @@
       .certificate-card { grid-template-columns: 1fr; gap: 19px; padding: 15px; }
       .certificate-content { padding: 2px 3px 5px; }
       .contact-actions { justify-content: flex-start; max-width: none; }
+    }
+
+
+
+    /* Perbaikan final layout pendidikan dan pengalaman agar kolom deskripsi tidak menyempit */
+    #pengalaman .timeline {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+    }
+    #pengalaman .timeline > li {
+      display: grid;
+      grid-template-columns: 155px minmax(0, 1fr);
+      column-gap: 24px;
+      align-items: start;
+      width: 100%;
+      min-width: 0;
+    }
+    #pengalaman .timeline > li > time {
+      display: block;
+      min-width: 0;
+      overflow-wrap: normal;
+    }
+    #pengalaman .timeline > li > div {
+      display: block;
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
+    }
+    #pengalaman .timeline .experience-tasks {
+      display: block;
+      width: 100%;
+      max-width: 780px;
+      min-width: 0;
+      box-sizing: border-box;
+      margin: 10px 0 0;
+      padding-left: 22px;
+      list-style: disc outside;
+    }
+    #pengalaman .timeline .experience-tasks > li {
+      display: list-item;
+      width: auto;
+      min-width: 0;
+      max-width: none;
+      margin: 0;
+      padding: 0 0 7px;
+      border: 0;
+      line-height: 1.65;
+      overflow-wrap: normal;
+    }
+    #pengalaman .timeline .experience-tasks > li:last-child {
+      padding-bottom: 0;
+    }
+    #pengalaman .timeline .experience-evidence {
+      width: 100%;
+      max-width: 780px;
+      min-width: 0;
+    }
+    @media (max-width: 800px) {
+      #pengalaman .timeline > li {
+        grid-template-columns: 125px minmax(0, 1fr);
+        column-gap: 18px;
+      }
+    }
+    @media (max-width: 560px) {
+      #pengalaman .timeline > li {
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: 5px;
+      }
+      #pengalaman .timeline .experience-tasks {
+        max-width: 100%;
+      }
     }
 
   </style>
